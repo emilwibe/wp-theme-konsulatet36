@@ -1,0 +1,7 @@
+.flex-mod-img img {
+    display: block;
+    height: 680px;
+    object-fit: cover;
+    object-position: center top;
+    width: 100%;
+}

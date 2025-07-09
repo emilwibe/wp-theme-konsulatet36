@@ -1,0 +1,4 @@
+/* Front Page */
+.l-wrapper.index-introduction {
+    padding: var(--padding-module);
+}

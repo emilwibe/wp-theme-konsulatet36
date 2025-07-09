@@ -1,0 +1,15 @@
+/* Nav */
+.global-nav > ul {
+  display: flex;
+}
+.global-nav a {
+  color: var(--clr-black);
+  display: block;
+  font-size: var(--font-size-small);
+  font-weight: 300;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+.global-nav > ul > li:last-child a{
+    padding-right: 0;
+}

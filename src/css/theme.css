@@ -1,0 +1,147 @@
+:root {
+  --animation-duration: 450ms;
+  --animation-cb: easeOutQuad;
+  --clr-black: #000;
+  --clr-white: #fff;
+  --clr-white-transparent: rgba(255, 255, 255, .6);
+  --clr-grass-green: #286235;
+  --clr-light-purple: #d6d5e7;
+  --clr-pastel-green: #d1ead9;
+  --border-radius-l: 20px;
+  --border-radius-s: 8px;
+  --font-heading: "EB Garamond", serif;
+  --font-text: "Inter", sans-serif;
+  --font-size-display: 22px;
+  --font-size-main: 17px;
+  --font-size-small: 14px;
+  --font-size-tiny: 12px;
+  --padding-large: 40px;
+  --padding-small: 16px;
+  --padding-module: 96px 0;
+
+  /* MODULE */
+  --splide-card-offset: calc(100% - 80px);
+}
+::selection {
+  background-color: var(--clr-light-purple);
+  color: var(--clr-black);
+}
+body {
+  background: linear-gradient(
+    270deg,
+    var(--clr-light-purple),
+    var(--clr-pastel-green)
+  );
+  background: linear-gradient(270deg, #d6d5e7, #e1d5e8, #e8d4e3, #e9d4d7, #e9ded4, #e8ead4, #dbead3, #d3ebda);
+  font-family: var(--font-text);
+  font-optical-sizing: auto;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+  scrollbar-color: var(--clr-pastel-green) var(--clr-white);
+  scrollbar-width: thin;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+h1 {
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 110%;
+}
+h1 + * {
+  margin-top: 18px;
+}
+h2 {
+  font-size: 43px;
+  font-weight: 500;
+  line-height: 110%;
+  margin-bottom: 0;
+}
+h2 + * {
+  margin-top: 16px;
+}
+h3 {
+  font-size: 31px;
+  font-weight: 500;
+  margin-top: 0;
+  line-height: 140%;
+  margin-bottom: 0;
+}
+h3 + * {
+  margin-top: 14px;
+}
+h4 {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 140%;
+  margin-bottom: 0;
+}
+h4 + * {
+  margin-top: 14px;
+}
+h5 {
+  font-size: 18px;
+  line-height: 110%;
+  margin-bottom: 0;
+}
+h5 + * {
+  margin-top: 12px;
+}
+h6 {
+  font-size: 15px;
+  line-height: 110%;
+  margin-bottom: 0;
+}
+a {
+  color: #66909C;
+  color: var(--clr-grass-green);
+  font-weight: 400;
+}
+strong {
+  font-weight: 500;
+}
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+button:focus {
+  outline: none;
+}
+@media screen and (max-width: 1024px) {
+  :root {
+    --padding-module: 32px 0;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 26px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 15px;
+  }
+}

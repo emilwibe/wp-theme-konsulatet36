@@ -1,0 +1,8 @@
+.fade-on-load {
+    animation-duration: var(--animation-duration);
+    animation-fill-mode: forwards;
+    animation-name: fade-in;
+    animation-play-state: paused;
+    animation-timing-function: var(--animation-cb);
+    opacity: 0;
+}

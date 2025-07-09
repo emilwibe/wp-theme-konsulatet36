@@ -1,0 +1,28 @@
+/* Header */
+.global-header {
+  height: 120px;
+  position: sticky;
+  left: 0;
+  top: var(--wp-admin--admin-bar--height);
+  transition: all var(--animation-duration);
+  width: 100%;
+  z-index: 10;
+}
+.global-header.is-active {
+    background-color: var(--clr-white);
+    height: 60px;
+}
+.global-header > div {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+.global-header .logo {
+  display: block;
+  height: 64px;
+  transition: all var(--animation-duration);
+}
+.global-header.is-active .logo {
+    height: 48px;
+}

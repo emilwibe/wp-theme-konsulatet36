@@ -1,0 +1,30 @@
+.l-wrapper {
+    margin: 0 auto;
+    width: 92%;
+}
+.l-wrapper.fw {
+    width: 100%;
+}
+.l-wrapper.xl {
+    max-width: 1400px;
+}
+.l-wrapper.l {
+    max-width: 1200px;
+}
+.l-wrapper.m {
+    max-width: 960px;
+}
+.l-wrapper.s {
+    max-width: 768px;
+}
+.l-grid-12 {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@media screen and (max-width: 480px) {
+    .l-wrapper.s-fw {
+        width: 100%;
+    }
+}

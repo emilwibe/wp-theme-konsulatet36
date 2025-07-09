@@ -1,0 +1,39 @@
+/* Global */
+.mod, .flex-mod-outer {
+  padding: var(--padding-module);
+}
+.border-gradient {
+  background: linear-gradient(270deg, #d6d5e7, #e1d5e8, #e8d4e3, #e9d4d7, #e9ded4, #e8ead4, #dbead3, #d3ebda);
+  height: 6px;
+}
+/* FRONT PAGE */
+.index-video-container {
+  animation-direction: alternate;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-name: move-up;
+  animation-play-state: running;
+  aspect-ratio: 1 / 1;
+  grid-column: 2 / 6;
+}
+.index-video {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.index-wysiwyg-container {
+    grid-column: 6 / 13;
+    margin-top: 140px;
+}
+/* LIBS */
+/* Particles.js*/
+#particles-js {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}

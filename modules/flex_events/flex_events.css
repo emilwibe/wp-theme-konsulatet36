@@ -1,0 +1,28 @@
+.flex-event-item {
+    aspect-ratio: 3 / 4;
+    background-color: var(--clr-white-transparent);
+    position: relative;
+    width: calc(25% - 40px) !important;
+    
+}
+.flex-event-item-inner {
+    padding: 20px;
+}
+.flex-event-item a {
+    text-decoration: none;
+}
+.flex-event-img {
+    aspect-ratio: 16 / 10;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+@media screen and (max-width: 480px) {
+    .flex-event-item {
+        width: var(--splide-card-offset) !important;
+    }
+    .splide-events {
+        margin-left: 20px;
+    }
+}
