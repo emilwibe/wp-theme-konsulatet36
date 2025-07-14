@@ -1,11 +1,15 @@
 .flex-event-item {
     aspect-ratio: 3 / 4;
     background-color: var(--clr-white-transparent);
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: calc(25% - 40px) !important;
     
 }
 .flex-event-item-inner {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
 .flex-event-item a {
@@ -17,6 +21,31 @@
     object-fit: cover;
     object-position: center;
     width: 100%;
+}
+.flex-item-time-container {
+    margin-top: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+.flex-event-item time {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+    display: block;
+    font-size: var(--font-size-tiny);
+    padding-left: 20px;
+}
+.flex-event-item .flex-event-date {
+    background-image: url(../../assets/ui/icons/calendar_black.svg);
+}
+.flex-event-item .flex-event-time {
+    background-image: url(../../assets/ui/icons/clock_black.svg);
+}
+@media screen and (max-width: 768px) {
+    .flex-event-item {
+        width: calc(33.3333% - 40px) !important;
+    }
 }
 @media screen and (max-width: 480px) {
     .flex-event-item {

@@ -1,7 +1,7 @@
 {
     if (document.querySelectorAll(".splide-events").length) {
     let splide = new Splide(".splide-events", {
-      type: "loop",
+      type: "slide",
       perPage: 4,
       perMove: 1,
       gap: 20,

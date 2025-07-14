@@ -3,10 +3,13 @@
   height: 120px;
   position: sticky;
   left: 0;
-  top: var(--wp-admin--admin-bar--height);
+  top: 0;
   transition: all var(--animation-duration);
   width: 100%;
   z-index: 10;
+}
+.admin-bar .global-header {
+  top: var(--wp-admin--admin-bar--height);
 }
 .global-header.is-active {
     background-color: var(--clr-white);

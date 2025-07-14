@@ -2,11 +2,32 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+//setlocale(LC_TIME, array('da_DA.UTF-8','da_DA@euro','da_DA','danish'));
 
 $flex_settings_width = get_sub_field('flex_settings_width');
 
+$date_now = date('Y-m-d H:i:s');
+$time_now = strtotime($date_now);
+
+$time_next_year = strtotime('+365 day', $time_now);
+$date_next_year = date('Y-m-d H:i:s', $time_next_year);
+
 $args = [
-    'post_type' => 'event-36'
+    'post_type' => 'event-36',
+    'posts_per_page' => -1,
+    'order' => 'DESC',
+    'meta_query' => array(
+        array(
+            'key' => 'event_datetime',
+            'compare' => 'BETWEEN',
+            'value' => array($date_now, $date_next_year),
+            'type' => 'DATETIME'
+        ),
+        'orderby' => 'meta_value',
+        'meta_key' => 'event_datetime',
+        'meta_type' => 'DATETIME'
+
+    ),
 ];
 
 $eventQuery = new WP_Query($args);
@@ -20,31 +41,46 @@ $eventQuery = new WP_Query($args);
                 <div class="splide__track">
                     <ul class="splide__list">
 
-                    <?php while ($eventQuery->have_posts()) : $eventQuery->the_post(); ?>
+                        <?php while ($eventQuery->have_posts()) : $eventQuery->the_post(); ?>
+                            <?php
+                            $event_start = get_field('event_datetime');
+                            $event_start_datetime = date_create($event_start);
+                            $event_start_year = date_format($event_start_datetime, "Y");
+                            $event_start_date = date_format($event_start_datetime, "j. F");
+                            $event_start_time = date_format($event_start_datetime, "H:i");
 
-                        <li class="splide__slide flex-event-item">
-                            
-                        <?php if( has_post_thumbnail() ) : ?>
+                            ?>
 
-                            <div class="flex-event-img-container">
+                            <li class="splide__slide flex-event-item">
 
-                            <?php echo wp_get_attachment_image( get_post_thumbnail_id(), 'full', false, ['class' => 'fade-on-load flex-event-img', 'onload' => 'loadMediaOnLoad(this)'] ); ?>
+                                <?php if (has_post_thumbnail()) : ?>
 
-                            <div class="border-gradient"></div>
-                            </div><!--/.event-img-container-->
+                                    <div class="flex-event-img-container">
 
-                            <div class="flex-event-item-inner">
+                                        <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'fade-on-load flex-event-img', 'onload' => 'loadMediaOnLoad(this)']); ?>
 
-                            <h4><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                                        <div class="border-gradient"></div>
+                                    </div><!--/.event-img-container-->
 
-                            </div><!--/.flex-event-item-inner-->
+                                    <div class="flex-event-item-inner">
 
-                        <?php endif; ?>
+                                        <h4><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h4>
 
-                        </p></li><!--/.slide__slide-->
+                                        <div class="flex-item-time-container">
 
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
+                                            <time class="flex-event-date" datetime="<?php echo $event_start; ?>"><?php echo $event_start_date; ?></time>
+                                            <time class="flex-event-time" datetime="<?php echo $event_start; ?>"><?php echo $event_start_time; ?></time>
+
+                                        </div><!--/.flex-item-time-container-->
+
+                                    </div><!--/.flex-event-item-inner-->
+
+                                <?php endif; ?>
+
+                            </li><!--/.slide__slide-->
+
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
 
                     </ul><!--/.splide__list-->
                 </div><!--/.splide__track-->
