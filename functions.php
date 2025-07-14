@@ -4,7 +4,8 @@ if (!defined('ABSPATH')) { exit; }
 // OUTPUT SITE URL TO JS
 function ew_head_output() {
     echo '<script>' . "\n";
-    echo "\t" . 'var ew_site_url = "' . get_site_url() . "\";\n";
+    echo "\t" . 'let ew_site_url = "' . get_site_url() . "\";\n";
+    echo "\t" . 'let ew_template_dir_uri = "' . get_template_directory_uri() . "\";\n";
     echo '</script>' . "\n";
 }
 
