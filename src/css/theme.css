@@ -18,6 +18,7 @@
   --padding-large: 40px;
   --padding-small: 16px;
   --padding-module: 96px 0;
+  --spacing-l: 60px;
 
   /* MODULE */
   --splide-card-offset: calc(100% - 80px);

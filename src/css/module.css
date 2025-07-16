@@ -1,4 +1,7 @@
 /* Global */
+body.nav-is-open {
+  overflow: hidden;
+}
 .mod, .flex-mod-outer {
   padding: var(--padding-module);
 }

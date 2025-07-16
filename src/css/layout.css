@@ -1,6 +1,6 @@
 .l-wrapper {
     margin: 0 auto;
-    width: 92%;
+    width: calc( 100% - calc( 2 * var(--spacing-l) ));
 }
 .l-wrapper.fw {
     width: 100%;

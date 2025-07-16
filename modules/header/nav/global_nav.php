@@ -1,5 +1,11 @@
 <?php
-if (!defined('ABSPATH')) { exit; }
+if (!defined('ABSPATH')) {
+	exit;
+}
+
+echo '<button id="nav-toggle" class="nav-toggle">';
+get_template_part('assets/ui/svg-part/hamburger-icon');
+echo '</button>';
 
 wp_nav_menu(array(
 	'container_id' => 'global-nav',
