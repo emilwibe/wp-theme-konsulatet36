@@ -29,3 +29,6 @@ get_template_part( 'functions/ew_cpt_events' );
 
 /* tinyMCE SETTINGS */
 get_template_part( 'functions/ew_acf_tinyMCE' );
+
+/* Helper functions */
+get_template_part( 'functions/ew_helper_functions' );

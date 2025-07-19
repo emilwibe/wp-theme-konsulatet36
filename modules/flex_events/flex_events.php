@@ -46,6 +46,7 @@ $eventQuery = new WP_Query($args);
                             $event_start = get_field('event_datetime');
                             $event_start_datetime = date_create($event_start);
                             $event_start_year = date_format($event_start_datetime, "Y");
+                            $event_start_month = date_format($event_start_datetime, "n");
                             $event_start_date = date_format($event_start_datetime, "j. F");
                             $event_start_time = date_format($event_start_datetime, "H:i");
 
@@ -68,7 +69,7 @@ $eventQuery = new WP_Query($args);
 
                                         <div class="flex-item-time-container">
 
-                                            <time class="flex-event-date" datetime="<?php echo $event_start; ?>"><?php echo $event_start_date; ?></time>
+                                            <time class="flex-event-date" datetime="<?php echo $event_start; ?>"><?php echo $event_start_date; ?> <?php ew_print_month("DK", $event_start_month); ?></time>
                                             <time class="flex-event-time" datetime="<?php echo $event_start; ?>"><?php echo $event_start_time; ?></time>
 
                                         </div><!--/.flex-item-time-container-->
