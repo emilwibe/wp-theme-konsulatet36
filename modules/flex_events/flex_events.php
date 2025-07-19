@@ -47,7 +47,7 @@ $eventQuery = new WP_Query($args);
                             $event_start_datetime = date_create($event_start);
                             $event_start_year = date_format($event_start_datetime, "Y");
                             $event_start_month = date_format($event_start_datetime, "n");
-                            $event_start_date = date_format($event_start_datetime, "j. F");
+                            $event_start_date = date_format($event_start_datetime, "j.");
                             $event_start_time = date_format($event_start_datetime, "H:i");
 
                             ?>
