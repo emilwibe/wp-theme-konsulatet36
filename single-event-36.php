@@ -12,9 +12,7 @@
 
                 <?php endif; ?>
 
-                <div class="content">
-                    <?php the_content(); ?>
-                </div>
+                <?php get_template_part('modules/flex_init'); ?>
 
             <?php endwhile; ?>
 

@@ -20,7 +20,7 @@
 
             </section><!--/.index-introduction-->
 
-            <?php get_template_part('modules/flex_init'); ?>
+            
 
                 <?php /*if (get_field('index_video')) : ?>
 
