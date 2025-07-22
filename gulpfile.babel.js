@@ -24,15 +24,15 @@ const paths = {
 
     "./modules/footer/footer.css",
     // LIBS
-    "./src/libs/splidejs/splide.min.css"
+    "./node_modules/@splidejs/splide/dist/css/splide.min.css"
   ],
   scriptsHead: [
     "./src/js/scripts-head.js"
   ],
   scriptsFooter: [
-    "./src/libs/particles.min.js",
     // LIBS
-    "./src/libs/splidejs/splide.min.js",
+    "./node_modules/particlesjs/dist/particles.min.js",
+    "./node_modules/@splidejs/splide/dist/js/splide.min.js",
     // FOOTER SCRIPTS
     "./src/js/scripts-footer.js",
     // MODULES

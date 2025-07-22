@@ -19,11 +19,15 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "particlesjs": "^2.2.3"
   },
   "babel": {
     "presets": [
       "@babel/preset-env"
     ]
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
   }
 }
