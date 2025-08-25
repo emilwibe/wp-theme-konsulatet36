@@ -28,6 +28,9 @@ nav ul {
 nav a {
   text-decoration: none;
 }
+img {
+  max-width: 100%;
+}
 video {
   clip-path: circle(50%);
   width: 600px;
