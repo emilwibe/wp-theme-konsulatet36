@@ -6,11 +6,13 @@
 
             <?php while (have_posts()) : the_post(); ?>
 
-                <?php if (!is_front_page()) : ?>
+                <?php
+                    if(has_post_thumbnail()) {
+                        the_post_thumbnail('full', ['class' => 'fade-on-load ', 'onload' => 'loadMediaOnLoad(this)']);
+                    }
+                ?>
 
                     <h1><?php the_title(); ?></h1>
-
-                <?php endif; ?>
 
                 <?php get_template_part('modules/flex_init'); ?>
 
