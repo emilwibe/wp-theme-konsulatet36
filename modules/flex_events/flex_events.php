@@ -13,6 +13,7 @@ $time_next_year = strtotime('+365 day', $time_now);
 $date_next_year = date('Y-m-d H:i:s', $time_next_year);
 
 // FOR EVENTS WITH A DATE
+$used_events_arr = [];
 $args_future = [
     'post_type' => 'event-36',
     'posts_per_page' => -1,
@@ -55,8 +56,9 @@ $eventWeeklyQuery = new WP_Query($args_weekly);
                             <?php if(get_field('event_weekdays')) : ?>
 
                                 <?php
+                                array_push($used_events_arr, get_the_ID());
                                 $event_weekdays = get_field('event_weekdays');
-                                //var_dump($event_weekdays);
+                                
                                 ?>
 
                                 <li class="splide__slide flex-event-item">
@@ -76,7 +78,7 @@ $eventWeeklyQuery = new WP_Query($args_weekly);
 
                                         <div class="flex-item-time-container">
 
-                                            <time class="flex-event-date" datetime="">
+                                            <time class="flex-event-date" datetime="">Fast 
                                             <?php
                                             foreach ($event_weekdays as $weekday) {
                                                 echo $weekday["label"] . " ";
@@ -96,8 +98,10 @@ $eventWeeklyQuery = new WP_Query($args_weekly);
                             <?php endif; // WEEKLY FIELD ?>
 
                         <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
 
                         <?php while ($eventQuery->have_posts()) : $eventQuery->the_post(); ?>
+                        <?php if(!in_array(get_the_ID(), $used_events_arr)) : ?>
                             <?php
                             $event_start = get_field('event_datetime');
                             $event_start_datetime = date_create($event_start);
@@ -136,6 +140,7 @@ $eventWeeklyQuery = new WP_Query($args_weekly);
 
                             </li><!--/.slide__slide-->
 
+                        <?php endif; ?>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
 
