@@ -31,7 +31,7 @@ const paths = {
   ],
   scriptsFooter: [
     // LIBS
-    "./node_modules/particlesjs/dist/particles.min.js",
+    "./node_modules/particlesjs/dist/particles.js",
     "./node_modules/@splidejs/splide/dist/js/splide.min.js",
     // FOOTER SCRIPTS
     "./src/js/scripts-footer.js",
@@ -73,9 +73,3 @@ export const jsFooter = () =>
     .pipe(dest(dirs.js));
 
 exports.default = series(styles, styles_dev, jsHead, jsFooter);
-
-task("watch", async function () {
-  watch(paths.css, [styles, styles_dev])
-  watch(paths.scriptsHead, [jsHead])
-  watch(paths.scriptsFooter, [jsFooter])
-})
