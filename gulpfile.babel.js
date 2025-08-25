@@ -31,7 +31,8 @@ const paths = {
   ],
   scriptsFooter: [
     // LIBS
-    "./node_modules/particlesjs/dist/particles.js",
+    //"./node_modules/particlesjs/dist/particles.js",
+    "./src/libs/particles.min.js",
     "./node_modules/@splidejs/splide/dist/js/splide.min.js",
     // FOOTER SCRIPTS
     "./src/js/scripts-footer.js",
