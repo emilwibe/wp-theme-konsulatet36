@@ -18,7 +18,7 @@
   --padding-large: 40px;
   --padding-small: 16px;
   --padding-module: 96px 0;
-  --spacing-l: 60px;
+  --spacing-l: 40px;
 
   /* MODULE */
   --splide-card-offset: calc(100% - 80px);
@@ -126,6 +126,7 @@ button:focus {
 @media screen and (max-width: 1024px) {
   :root {
     --padding-module: 32px 0;
+    --spacing-l: 24px;
   }
   h1 {
     font-size: 40px;
