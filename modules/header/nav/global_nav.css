@@ -28,8 +28,8 @@
   cursor: pointer;
 }
 #nav-toggle svg {
-  height: calc( var(--spacing-l) - 10px);
-  width: calc( var(--spacing-l) - 10px);
+  height: 32px;
+  width: 32px;
   margin: auto;
 }
 #nav-toggle .line {
