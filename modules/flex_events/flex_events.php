@@ -12,7 +12,8 @@ $time_now = strtotime($date_now);
 $time_next_year = strtotime('+365 day', $time_now);
 $date_next_year = date('Y-m-d H:i:s', $time_next_year);
 
-$args = [
+// FOR EVENTS WITH A DATE
+$args_future = [
     'post_type' => 'event-36',
     'posts_per_page' => -1,
     'order' => 'DESC',
@@ -30,16 +31,71 @@ $args = [
     ),
 ];
 
-$eventQuery = new WP_Query($args);
+// FOR EVENTS THAT OCCUR WEEKLY
+$args_weekly = [
+    'post_type' => 'event-36',
+    'posts_per_page' => -1,
+    'order' => 'DESC',
+];
+
+$eventQuery = new WP_Query($args_future);
+$eventWeeklyQuery = new WP_Query($args_weekly);
 ?>
 
-<?php if ($eventQuery->have_posts()) : ?>
+<?php if ($eventQuery->have_posts() || $eventWeeklyQuery->have_posts()) : ?>
 
     <section class="flex-mod flex-mod-outer flex-mod-events">
         <div class="flex-mod-inner l-wrapper <?php echo $flex_settings_width; ?> s-fw">
             <div class="splide splide-events" role="group">
                 <div class="splide__track">
                     <ul class="splide__list">
+
+                        <?php while($eventWeeklyQuery->have_posts()) : $eventWeeklyQuery->the_post(); ?>
+
+                            <?php if(get_field('event_weekdays')) : ?>
+
+                                <?php
+                                $event_weekdays = get_field('event_weekdays');
+                                //var_dump($event_weekdays);
+                                ?>
+
+                                <li class="splide__slide flex-event-item">
+
+                                <?php if (has_post_thumbnail()) : ?>
+
+                                    <div class="flex-event-img-container">
+
+                                        <?php echo wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'fade-on-load flex-event-img', 'onload' => 'loadMediaOnLoad(this)']); ?>
+
+                                        <div class="border-gradient"></div>
+                                    </div><!--/.event-img-container-->
+
+                                    <div class="flex-event-item-inner">
+
+                                        <h4><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h4>
+
+                                        <div class="flex-item-time-container">
+
+                                            <time class="flex-event-date" datetime="">
+                                            <?php
+                                            foreach ($event_weekdays as $weekday) {
+                                                echo $weekday["label"] . " ";
+                                            }
+                                            ?>
+
+                                            </time>
+
+                                        </div><!--/.flex-item-time-container-->
+
+                                    </div><!--/.flex-event-item-inner-->
+
+                                <?php endif; ?>
+
+                            </li><!--/.slide__slide-->
+
+                            <?php endif; // WEEKLY FIELD ?>
+
+                        <?php endwhile; ?>
 
                         <?php while ($eventQuery->have_posts()) : $eventQuery->the_post(); ?>
                             <?php
